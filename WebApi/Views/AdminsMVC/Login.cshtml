@@ -1,0 +1,68 @@
+﻿@model WebApi.Models.Admin
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Login.cshtml";
+}
+
+<div class="login-block">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-horizontal">
+            <img src="~/Images/logoAdmin.png" alt="Login" style="width: 200px; height:200px; margin-top: 10px;" />
+            <hr />
+            <span>
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            </span>
+            <div class="form-group" style="margin-top: 20px;">
+                @Html.LabelFor(model => model.AdminName, htmlAttributes: new { @class = "control-label col-md-4" })
+
+                <div class="col-md-7">
+                    <input type="text" name="AdminName" value="" class="form-control" />
+                    @Html.ValidationMessageFor(model => model.AdminName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-4" })
+                <div class="col-md-7">
+                    <input type="password" name="Password" value="" class="form-control" />
+                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group" style="margin-top: 30px;">
+                <div class="col-md-12">
+                    <input type="submit" value="Login" class="btn btn-default nut" style="margin-right: 20px;" />
+                    <a class="btn btn-default nut" href="/Home/Index" style="margin: 0 20px 0 0;">Cancel</a>
+                </div>
+            </div>
+        </div>
+    }
+
+</div>
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+<style>
+    .login-block {
+        display: inline-block;
+        text-align: center;
+        border: 1px solid #ccc;
+        width: 400px;
+        height: 470px;
+        box-shadow: 1px 2px 2px 2px #808080;
+    }
+
+    .nut {
+        width: 80px;
+        height: 40px;
+        vertical-align: middle;
+    }
+
+        .nut:hover {
+            background: aquamarine;
+        }
+</style>

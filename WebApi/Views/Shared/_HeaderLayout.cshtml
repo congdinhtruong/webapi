@@ -1,0 +1,70 @@
+﻿<div class="landing-image"
+     style="background-image: url(/Images/library.jpg); margin-top: -50px;">
+</div>
+<div class="gradient-box" style="height: 100px;"></div>
+<div class="nav-secondary" role="navigation">
+    <a class="navbar-brand" href="/Home/Index" style="padding: 10px; color: white;">
+        <img src="~/Images/main-logo-green.svg" class="main-logo-green">
+        <span class="main-logo-text text-logo">Greenwich Library</span>
+    </a>
+    @*<nav class="nav navbar-inverse" style="background: transparent;">*@
+        <ul class="nav navbar-nav navbar-right" style="margin-top: 7px; margin-right: 50px;">
+            <li class="nav-links">
+                <a href="/Home/Index">
+                    <span class="glyphicon glyphicon-home"></span> Home
+                </a>
+            </li>
+            <li class="nav-links" >
+                <a href="/Home/Introduction" >
+                    <span class="glyphicon glyphicon-th-list"></span> Introduction
+                </a>
+            </li>
+            <li class="nav-links">
+                <a href="#" data-toggle="tooltip" title="+28.7300.2266" data-placement="bottom">
+                    <span class="glyphicon glyphicon-earphone"></span> Contact
+                </a>
+            </li>
+            <li class="dropdown nav-links">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <span class="glyphicon glyphicon-user" ></span>Account
+                    <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="/Students/ShowProFile/@Session["idStudent"]">@Session["name"]</a></li>
+                    <li><a href="/Students/Login">Login for Student</a></li>
+                    <li><a href="/RentalDetails/ShowRentDetails">List Rental Books</a></li>
+                    <li><a href="/Admins/Login">Login for Admin</a></li>
+                    <li><a href="/Students/Logout">Logout</a></li>
+                </ul>
+            </li>
+        </ul>
+    @*</nav>*@
+</div>
+<style>
+    .nav-links {
+        text-transform: uppercase;
+        text-decoration: none;        
+        font-size: 18px;
+        line-height: 22px;
+    }
+
+    .nav-links > a {
+        color: white;
+    }
+        .nav-links > a:hover {
+            color: aquamarine;
+        }        
+    .text-logo:hover {
+        color: aquamarine;
+    }
+    .navbar-brand:hover {
+        color: aquamarine;
+    }
+    
+    
+</style>
+<script>
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();
+});
+</script>
